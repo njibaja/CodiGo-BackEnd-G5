@@ -1,8 +1,11 @@
 from flask import Flask, request
 #request ---> nos da toda la informacion del cliente
+from flask_cors import CORS
 
 app = Flask(__name__)
+# si solamente le pasamos la aplicacion o la instacvion de flask habilitara los cors para todos los domiions  para todos los metods
 
+CORS(app=app)
 #el endPoint
 @app.route('/', methods=['POST'])
 def inicio():
@@ -62,7 +65,7 @@ def productos():
     
 # al nostros ponerle el tipo de dato que podemos aceptar y si al momento de enviar 
 # no es ese tipo de dato entonces se rechazara autoamticamente la peticion con un estado 404 NOT FOUND
-@app.route('/producto/<int:id>', methods = ['GET'])
+@app.route('/producto/<int:id>', methods = ['GET','PUT'])
 def producto(id):
     if request.method == 'GET':
         #Solucion : Sacar la longitud de la lista y validar 
@@ -89,6 +92,21 @@ def producto(id):
             'message': 'El producto no existe',
             'ok' : False
         }
+    elif request.method == 'PUT':
+        data = request.get_json()
+        if(id < len(mis_productos)):
+            mis_productos[id] = data
+            return {
+                'ok' : True,
+                'data': mis_productos[id],
+                'message': 'Producto actualizado satisfactoriamente.'
+            }, 201
+        else:
+            return{
+                'ok' : False,
+                'data': None,
+                'message': 'El Producto con el id {} no existe'.format(id)
+            }
 
 
 
