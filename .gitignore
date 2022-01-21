@@ -1,2 +1,3 @@
 #Evitamos subir el entorno
 entorno_flask
+node_modules

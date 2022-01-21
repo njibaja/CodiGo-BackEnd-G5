@@ -1,0 +1,32 @@
+{
+  "name": "minimarket",
+  "version": "1.0.0",
+  "description": "proyecto de minimarkets",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njibaja/CodiGo-BackEnd-G5.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "middlewares"
+  ],
+  "author": "Nicolas Jibaja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njibaja/CodiGo-BackEnd-G5/issues"
+  },
+  "homepage": "https://github.com/njibaja/CodiGo-BackEnd-G5#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
